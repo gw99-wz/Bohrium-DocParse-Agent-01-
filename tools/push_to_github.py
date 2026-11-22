@@ -42,6 +42,7 @@ API = "https://api.github.com"
 SKIP_DIRS = {
     ".git", ".install", "__pycache__", ".venv", "venv", "node_modules",
     ".output", "output", "tmp", ".pytest_cache", ".idea", ".vscode",
+    ".submission", "out", "fixtures",
 }
 SKIP_FILES = {".env", ".git-credentials", "*.tmp"}
 SKIP_SUFFIX = (".pyc", ".pyo", ".log", ".tmp")

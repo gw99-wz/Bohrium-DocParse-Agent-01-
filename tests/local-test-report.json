@@ -1,0 +1,197 @@
+{
+ "generated_by": "tests/run_local_test.py",
+ "parser": "scripts/parse_pdf.py",
+ "real_cases": [
+  {
+   "case": "prl-mos2",
+   "pdf": "10_10.1103_physrevlett.105.136805.pdf",
+   "pages": 15,
+   "status": "success",
+   "sections": 2,
+   "paragraphs": 217,
+   "tables": 0,
+   "figures": 4,
+   "formulas": 0,
+   "references": 30,
+   "uncertainty_items": 17,
+   "two_column_pages": 0,
+   "evidence_valid": true
+  },
+  {
+   "case": "nnano-valleytronics",
+   "pdf": "31_10.1038_nnano.2012.95.pdf",
+   "pages": 15,
+   "status": "partial",
+   "sections": 4,
+   "paragraphs": 171,
+   "tables": 0,
+   "figures": 11,
+   "formulas": 0,
+   "references": 0,
+   "uncertainty_items": 7,
+   "two_column_pages": 0,
+   "evidence_valid": true
+  },
+  {
+   "case": "nl-ws2",
+   "pdf": "40_10.1021_nl3026357.pdf",
+   "pages": 25,
+   "status": "success",
+   "sections": 8,
+   "paragraphs": 331,
+   "tables": 0,
+   "figures": 6,
+   "formulas": 0,
+   "references": 35,
+   "uncertainty_items": 16,
+   "two_column_pages": 0,
+   "evidence_valid": true
+  }
+ ],
+ "checks_passed": 25,
+ "checks_total": 25,
+ "checks": [
+  {
+   "check": "prl-mos2:contains_text",
+   "ok": true,
+   "detail": 217
+  },
+  {
+   "check": "prl-mos2:status_ok",
+   "ok": true,
+   "detail": "success"
+  },
+  {
+   "check": "prl-mos2:evidence_valid",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "prl-mos2:no_control_chars_in_titles",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "prl-mos2:page_count_positive",
+   "ok": true,
+   "detail": 15
+  },
+  {
+   "check": "prl:references_detected",
+   "ok": true,
+   "detail": 30
+  },
+  {
+   "check": "nnano-valleytronics:contains_text",
+   "ok": true,
+   "detail": 171
+  },
+  {
+   "check": "nnano-valleytronics:status_ok",
+   "ok": true,
+   "detail": "partial"
+  },
+  {
+   "check": "nnano-valleytronics:evidence_valid",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "nnano-valleytronics:no_control_chars_in_titles",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "nnano-valleytronics:page_count_positive",
+   "ok": true,
+   "detail": 15
+  },
+  {
+   "check": "nl-ws2:contains_text",
+   "ok": true,
+   "detail": 331
+  },
+  {
+   "check": "nl-ws2:status_ok",
+   "ok": true,
+   "detail": "success"
+  },
+  {
+   "check": "nl-ws2:evidence_valid",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "nl-ws2:no_control_chars_in_titles",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "nl-ws2:page_count_positive",
+   "ok": true,
+   "detail": 25
+  },
+  {
+   "check": "fixture:two_column_page_detected",
+   "ok": true,
+   "detail": 1
+  },
+  {
+   "check": "fixture:column_reading_order",
+   "ok": true,
+   "detail": [
+    "L1",
+    "L2",
+    "L3",
+    "L4",
+    "R1",
+    "R2",
+    "R3",
+    "R4"
+   ]
+  },
+  {
+   "check": "fixture:running_header_removed",
+   "ok": true,
+   "detail": null
+  },
+  {
+   "check": "fixture:table_detected_on_page2",
+   "ok": true,
+   "detail": [
+    2
+   ]
+  },
+  {
+   "check": "fixture:table_cells_present",
+   "ok": true,
+   "detail": "| Sample | Gap (eV) | Phase |\n|---|---|---|\n| F1 | 1.29 | bulk |\n| F2 | 1.80 | m"
+  },
+  {
+   "check": "scan:reported_failed_or_partial",
+   "ok": true,
+   "detail": "failed:no_text"
+  },
+  {
+   "check": "scan:uncertainty_recorded",
+   "ok": true,
+   "detail": [
+    "no_text_layer"
+   ]
+  },
+  {
+   "check": "prl:qa_finds_band_gap",
+   "ok": true,
+   "detail": {
+    "status": "answered",
+    "confidence": 0.83
+   }
+  },
+  {
+   "check": "prl:qa_evidence_has_page",
+   "ok": true,
+   "detail": null
+  }
+ ],
+ "note": "fixtures are synthetic layout documents; the three real cases are published papers from the local corpus, not the organisers' hidden cases"
+}

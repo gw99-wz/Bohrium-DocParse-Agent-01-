@@ -13,7 +13,12 @@ output/
 tmp/
 *.log
 *.tmp
+.submission/
 .DS_Store
+
+# 测试生成物（夹具与每次运行输出由脚本重建）
+tests/out/
+tests/fixtures/
 
 # 凭据（永远不要提交）
 .git-credentials

@@ -1,73 +1,96 @@
-# 阅读01 | 文献文档解析 — Bohrium DocParse Agent
+# 阅读01 | 文献文档解析 — 证据锚定的科研 PDF 解析 Skill
 
-玻尔分站赛 **product-arena-08-3027d350** 参赛作品仓库。
+玻尔分站赛 **product-arena-08-3027d350** 参赛作品。
 
-## 赛题
+- 赛题：https://play.bohrium.com/challenge/product-arena-08-3027d350
+- 作品形态：可被 Agent 调用的 Skill（`SKILL.md` + 解析脚本 + 测试 + 文档）
+- 核心主张：**每条结论都能回到原文页码与区块（bbox），读不出的部分如实标注**
 
-| 项目 | 内容 |
+## 它解决什么
+
+| 题面要求 | 本 Skill 的做法 |
 |---|---|
-| 赛题 | 阅读01 \| 文献文档解析（科研阅读：回答问题，也给出依据） |
-| Challenge ID | `product-arena-08-3027d350` |
-| 赛题页 | https://play.bohrium.com/challenge/product-arena-08-3027d350 |
-| 提交入口 | Playground（ARM bundle / 提交目录） |
+| 提得全 | 块级文本抽取；页眉页脚按跨页重复度剔除；参考文献按编号切分 |
+| 排得对 | 双栏检测 + 跨栏块分段锚点，段内先左栏后右栏，修串栏错行 |
+| 拆得清 | 字号/加粗判定章节层级；`find_tables` 还原表格网格；公式按符号库存证 |
+| 核得回 | 段落/表/图/公式全部带 `page` + `bbox` + 逐字 `quote`；不可读项进 `uncertainties` |
 
-## 交付核心
+## 快速开始
 
-平台固定 3 个科研案例，分别在「基础 Agent」与「加载本 Skill 的 Agent」下运行，评分关注：
-
-1. **提得全** — 正文、图表题注、脚注、参考文献逐字提取，不漏行、不混页眉页脚。
-2. **排得对** — 双栏/多栏/跨页按原版面顺序，不串栏、不错行。
-3. **拆得清** — 章节层级、表格行列与单元格归属、公式上下标与希腊字母，还原成可继续处理的结构。
-4. **核得回** — 每段文字、每张表格可指回原文页码与区块；读不出处如实标注，不猜补。
-
-交付物：`SKILL.md` + 脚本/资源 + 使用说明 + 最小调用示例；每个案例返回结构化结果（主结果、证据定位、运行状态、不确定性）。
-
-## 仓库结构（规划）
-
-```
-SKILL.md              # Skill 本体（name/description YAML frontmatter）
-scripts/              # 解析脚本与后处理
-docs/
-  challenge.md        # 官方题面原文（存档，便于复核）
-  harbor-contract.md  # Harbor 运行契约要点整理
-examples/             # 最小调用示例（输入 → 调用 → 示意输出）
-README.md
-GITHUB_URL.txt        # 提交目录根路径要求的链接文件
+```bash
+pip install pymupdf
+python scripts/parse_pdf.py --case /input/case.json --out /app/output/result.json
 ```
 
-## 提交要求提醒
+直接指定 PDF：
 
-- 在提交目录根路径放置 `GITHUB_URL.txt`，第一行写本仓库链接。
-- GitHub 公开链接需在未登录浏览器中可访问（本仓库为 Public）。
-- 不提交预制答案；示例输出必须标明「示例」。
-- Skill 资源上限：≤50 个 UTF-8 文本文件，单文件 ≤500KB，总计 ≤2MB，无符号链接。
+```bash
+python scripts/parse_pdf.py --pdf paper.pdf --out result.json --case-id demo
+```
 
-## 本机环境与推送说明
+问题检索：
 
-- 本 Windows 环境无法直连 `github.com`（TLS 被阻断），`api.github.com` 与 `ghproxy.net` 可用。
-- 因此提供 `tools/push_to_github.py`：通过 GitHub REST API 以快照方式提交（无需 git 协议）。
-- 读取（fetch/clone）可走 `ghproxy.net` 镜像；推送走 API。
-- 凭据：`GITHUB_TOKEN` 环境变量（git.exe 直连可用时也可配合 `~/.git-credentials`）。
+```bash
+python scripts/parse_pdf.py --pdf paper.pdf --out result.json \
+  --question "What is the band gap of bulk MoS2?"
+```
 
-### 推送
+## 仓库结构
+
+```
+SKILL.md                  # Skill 本体（YAML frontmatter + 工作流 + 证据规则）
+scripts/parse_pdf.py      # 解析器：版面顺序、页眉页脚、章节、表格、公式、引用、问答
+tests/run_local_test.py   # 本地验收测试（25 项断言，写 local-test-report.json）
+tests/make_fixtures.py    # 合成双栏/无文字层测试夹具
+tests/local-test-report.json  # 最近一次真实运行的测试报告
+docs/usage.md             # 完整用法、字段说明、限制
+docs/challenge.md         # 官方题面存档
+docs/harbor-contract.md   # Harbor 运行契约摘要
+docs/arm-protocol.json    # 官方 ARM 协议原文
+examples/                 # 最小调用示例（示意输出，已标明）
+GITHUB_URL.txt            # 提交目录要求的作品链接
+tools/push_to_github.py   # 本机网络下的 API 推送工具（见下）
+```
+
+## 本地测试（真实结果）
+
+`python tests/run_local_test.py` 在 3 篇真实论文 + 2 个合成夹具上运行，最近一次 **25/25 通过**：
+
+| 案例 | 页数 | 状态 | 段落 | 图 | 参考文献 | 不可读项 | 证据有效 |
+|---|---|---|---|---|---|---|---|
+| PRL 105, 136805（MoS₂） | 15 | success | 217 | 4 | 30 | 17 | ✅ |
+| Nat. Nanotechnol. 2012（valleytronics） | 15 | partial | 171 | 11 | 0 | 7 | ✅ |
+| Nano Lett. 2012（WS₂） | 25 | success | 331 | 6 | 35 | 16 | ✅ |
+| 合成双栏夹具 | 3 | success | — | 0 | 0 | 0 | ✅ |
+| 合成无文字层夹具 | 1 | failed:no_text | 0 | 0 | 0 | 1 | ✅ |
+
+数字直接读自 `tests/local-test-report.json`；报告未通过时脚本以非零码退出。
+`partial` 表示有页面字符数 < 80（该 PDF 有图表页），不是解析失败。
+
+## 限制（如实声明）
+
+- 不做 OCR：扫描件页记为 `no_text_layer`，`status: partial`，建议接平台 `ocr-tool` 后再对照。
+- 未内嵌 Type1 数学字体导致的乱码块记为 `unreadable_text_block`，不重建公式。
+- 无线框表格可能漏检；合并单元格按检测结果原样保留，不静默修补。
+- 页眉页脚需 ≥3 页重复才识别；短文档可能保留页眉（该情况会进入 uncertainties）。
+- `qa` 是词法检索 + 三段落窗口，不生成答案，因此不会编造，但覆盖面有限。
+
+## 提交
+
+- 提交目录根路径的 `GITHUB_URL.txt` 第一行即本仓库链接。
+- 平台使用固定 3 个案例，分别对比「基础 Agent」与「加载本 Skill 的 Agent」。
+- 运行时契约见 `docs/harbor-contract.md`：输入 `/input/case.json`，输出 `/app/output/result.json`，
+  预算 64 次请求 / 900 秒 / 16k tokens。
+
+## 本机推送说明
+
+本 Windows 环境无法直连 `github.com`（TLS 被阻断），`api.github.com` 与 `ghproxy.net` 可用：
 
 ```powershell
-# 快照式推送（默认 branch=main，读取 GITHUB_TOKEN）
-python tools/push_to_github.py
+# 读：镜像拉取
+git fetch ghproxy && git reset --hard ghproxy/main
+# 写：REST API 快照提交（无需 git 协议）
+$env:GITHUB_TOKEN = "<token>"; python tools/push_to_github.py
 ```
 
-```powershell
-# 直连 git 可用时（如个人网络）
-git push origin main
-```
-
-### 拉取
-
-```powershell
-git fetch ghproxy
-git reset --hard ghproxy/main
-```
-
-## 时间
-
-- 2026-08-18 初始化仓库骨架。
+在直连可用的网络里，`git push origin main` 同样可用。

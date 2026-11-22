@@ -1,0 +1,523 @@
+{
+ "schema": "docparse/1.0",
+ "status": "success",
+ "document": {
+  "file": "sample.pdf",
+  "sha256": "8834997de69fdbff19421e1e17d800d96750503127c669541a555895dbee401a",
+  "pages": 3,
+  "body_font_size": 10.0,
+  "title": "A Fixture Paper on Two Column Reading Order",
+  "running_headers": [
+   "Journal of Layout Fixtures 12 (2026) 1-3"
+  ],
+  "running_footers": []
+ },
+ "sections": [
+  {
+   "level": 1,
+   "title": "A Fixture Paper on Two Column Reading Order",
+   "page": 1,
+   "bbox": [
+    72.0,
+    62.88,
+    430.29,
+    84.91
+   ],
+   "paragraphs": [
+    {
+     "text": "A. Author, B. Author",
+     "page": 1,
+     "bbox": [
+      72.0,
+      94.25,
+      160.94,
+      107.99
+     ],
+     "quote": "A. Author, B. Author"
+    },
+    {
+     "text": "Abstract: this fixture exists only to test reading order. Its left column comes first, its right column second, and the header must not leak into the body.",
+     "page": 1,
+     "bbox": [
+      72.0,
+      120.0,
+      492.71,
+      148.51
+     ],
+     "quote": "Abstract: this fixture exists only to test reading order. Its left column comes first, its right column second, and the header must not leak into the body."
+    },
+    {
+     "text": "L1: first paragraph of the left column, spanning two lines because the column is narrow and the sentence is deliberately long.",
+     "page": 1,
+     "bbox": [
+      72.0,
+      180.0,
+      282.65,
+      223.28
+     ],
+     "quote": "L1: first paragraph of the left column, spanning two lines because the column is narrow and the sentence is deliberately long."
+    },
+    {
+     "text": "L2: second paragraph of the left column.",
+     "page": 1,
+     "bbox": [
+      72.0,
+      275.0,
+      250.99,
+      288.74
+     ],
+     "quote": "L2: second paragraph of the left column."
+    },
+    {
+     "text": "L3: third paragraph of the left column.",
+     "page": 1,
+     "bbox": [
+      72.0,
+      370.0,
+      238.2,
+      383.74
+     ],
+     "quote": "L3: third paragraph of the left column."
+    },
+    {
+     "text": "L4: fourth paragraph of the left column.",
+     "page": 1,
+     "bbox": [
+      72.0,
+      465.0,
+      244.32,
+      478.74
+     ],
+     "quote": "L4: fourth paragraph of the left column."
+    },
+    {
+     "text": "R1: first paragraph of the right column.",
+     "page": 1,
+     "bbox": [
+      305.0,
+      180.0,
+      475.63,
+      193.74
+     ],
+     "quote": "R1: first paragraph of the right column."
+    },
+    {
+     "text": "R2: second paragraph of the right column.",
+     "page": 1,
+     "bbox": [
+      305.0,
+      275.0,
+      491.76,
+      288.74
+     ],
+     "quote": "R2: second paragraph of the right column."
+    },
+    {
+     "text": "R3: third paragraph of the right column.",
+     "page": 1,
+     "bbox": [
+      305.0,
+      370.0,
+      478.97,
+      383.74
+     ],
+     "quote": "R3: third paragraph of the right column."
+    },
+    {
+     "text": "R4: fourth paragraph of the right column.",
+     "page": 1,
+     "bbox": [
+      305.0,
+      465.0,
+      485.09,
+      478.74
+     ],
+     "quote": "R4: fourth paragraph of the right column."
+    }
+   ]
+  },
+  {
+   "level": 2,
+   "title": "Table 1: Measured fixture values",
+   "page": 2,
+   "bbox": [
+    72.0,
+    48.23,
+    241.95,
+    63.38
+   ],
+   "paragraphs": [
+    {
+     "text": "Sample Gap (eV) Phase",
+     "page": 2,
+     "bbox": [
+      78.0,
+      86.32,
+      403.51,
+      98.69
+     ],
+     "quote": "Sample Gap (eV) Phase"
+    },
+    {
+     "text": "F1 1.29 bulk",
+     "page": 2,
+     "bbox": [
+      78.0,
+      110.32,
+      394.51,
+      122.69
+     ],
+     "quote": "F1 1.29 bulk"
+    },
+    {
+     "text": "F2 1.80 monolayer",
+     "page": 2,
+     "bbox": [
+      78.0,
+      134.32,
+      420.01,
+      146.69
+     ],
+     "quote": "F2 1.80 monolayer"
+    },
+    {
+     "text": "Equation: E = h * c / lambda, with alpha = 0.5",
+     "page": 2,
+     "bbox": [
+      72.0,
+      189.25,
+      272.12,
+      202.99
+     ],
+     "quote": "Equation: E = h * c / lambda, with alpha = 0.5"
+    },
+    {
+     "text": "Closing remarks for the layout fixture. This page exists so the running head appears on three pages and can be classified as furniture rather than body text. It also gives the parser a page whose character count is above the no-text-layer threshold.",
+     "page": 3,
+     "bbox": [
+      72.0,
+      90.0,
+      512.21,
+      133.28
+     ],
+     "quote": "Closing remarks for the layout fixture. This page exists so the running head appears on three pages and can be classified as furniture rather than body text. It also gives the parser a page whose char"
+    }
+   ]
+  }
+ ],
+ "tables": [
+  {
+   "page": 2,
+   "bbox": [
+    72.0,
+    80.0,
+    522.0,
+    152.0
+   ],
+   "rows": 3,
+   "cols": 3,
+   "markdown": "| Sample | Gap (eV) | Phase |\n|---|---|---|\n| F1 | 1.29 | bulk |\n| F2 | 1.80 | monolayer |",
+   "caption": "Table 1: Measured fixture values"
+  }
+ ],
+ "figures": [],
+ "formulas": [],
+ "references": [],
+ "layout": {
+  "pages": [
+   {
+    "page": 1,
+    "blocks": 11,
+    "chars": 625,
+    "tables": 0,
+    "figures": 0,
+    "formulas": 0
+   },
+   {
+    "page": 2,
+    "blocks": 5,
+    "chars": 128,
+    "tables": 1,
+    "figures": 0,
+    "formulas": 0
+   },
+   {
+    "page": 3,
+    "blocks": 1,
+    "chars": 249,
+    "tables": 0,
+    "figures": 0,
+    "formulas": 0
+   }
+  ],
+  "two_column_pages": 1,
+  "header_pages": 1,
+  "footer_pages": 0
+ },
+ "uncertainties": [],
+ "provenance": {
+  "script": "scripts/parse_pdf.py",
+  "version": "0.1.0",
+  "pymupdf": "1.28.2",
+  "params": {
+   "body_size_fallback": 10.0,
+   "heading_ratio": 1.1,
+   "header_band": 0.075,
+   "footer_band": 0.075
+  },
+  "elapsed_s": 0.07
+ },
+ "case_id": "example-fixture",
+ "input": {
+  "pdf": "C:\\Users\\TYTX\\Documents\\deepseek-harness\\default-workspace\\Bohrium-DocParse-Agent-01-\\examples\\sample.pdf",
+  "case": "C:\\Users\\TYTX\\Documents\\deepseek-harness\\default-workspace\\Bohrium-DocParse-Agent-01-\\examples\\input-case.json"
+ },
+ "evidence_index": {
+  "1": [
+   {
+    "kind": "section",
+    "title": "A Fixture Paper on Two Column Reading Order",
+    "bbox": [
+     72.0,
+     62.88,
+     430.29,
+     84.91
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "A. Author, B. Author",
+    "bbox": [
+     72.0,
+     94.25,
+     160.94,
+     107.99
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "Abstract: this fixture exists only to test reading order. Its left column comes first, its right column second, and the ",
+    "bbox": [
+     72.0,
+     120.0,
+     492.71,
+     148.51
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "L1: first paragraph of the left column, spanning two lines because the column is narrow and the sentence is deliberately",
+    "bbox": [
+     72.0,
+     180.0,
+     282.65,
+     223.28
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "L2: second paragraph of the left column.",
+    "bbox": [
+     72.0,
+     275.0,
+     250.99,
+     288.74
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "L3: third paragraph of the left column.",
+    "bbox": [
+     72.0,
+     370.0,
+     238.2,
+     383.74
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "L4: fourth paragraph of the left column.",
+    "bbox": [
+     72.0,
+     465.0,
+     244.32,
+     478.74
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "R1: first paragraph of the right column.",
+    "bbox": [
+     305.0,
+     180.0,
+     475.63,
+     193.74
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "R2: second paragraph of the right column.",
+    "bbox": [
+     305.0,
+     275.0,
+     491.76,
+     288.74
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "R3: third paragraph of the right column.",
+    "bbox": [
+     305.0,
+     370.0,
+     478.97,
+     383.74
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "R4: fourth paragraph of the right column.",
+    "bbox": [
+     305.0,
+     465.0,
+     485.09,
+     478.74
+    ]
+   }
+  ],
+  "2": [
+   {
+    "kind": "section",
+    "title": "Table 1: Measured fixture values",
+    "bbox": [
+     72.0,
+     48.23,
+     241.95,
+     63.38
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "Sample Gap (eV) Phase",
+    "bbox": [
+     78.0,
+     86.32,
+     403.51,
+     98.69
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "F1 1.29 bulk",
+    "bbox": [
+     78.0,
+     110.32,
+     394.51,
+     122.69
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "F2 1.80 monolayer",
+    "bbox": [
+     78.0,
+     134.32,
+     420.01,
+     146.69
+    ]
+   },
+   {
+    "kind": "paragraph",
+    "quote": "Equation: E = h * c / lambda, with alpha = 0.5",
+    "bbox": [
+     72.0,
+     189.25,
+     272.12,
+     202.99
+    ]
+   },
+   {
+    "kind": "table",
+    "caption": "Table 1: Measured fixture values",
+    "bbox": [
+     72.0,
+     80.0,
+     522.0,
+     152.0
+    ]
+   }
+  ],
+  "3": [
+   {
+    "kind": "paragraph",
+    "quote": "Closing remarks for the layout fixture. This page exists so the running head appears on three pages and can be classifie",
+    "bbox": [
+     72.0,
+     90.0,
+     512.21,
+     133.28
+    ]
+   }
+  ]
+ },
+ "qa": [
+  {
+   "question": "What does the left column of the first page contain?",
+   "status": "partial",
+   "answer_excerpt": "a. author, b. author abstract: this fixture exists only to test reading order. its left column comes first, its right column second, and the header must not leak into the body.",
+   "section": "A Fixture Paper on Two Column Reading Order",
+   "confidence": 0.5,
+   "evidence": [
+    {
+     "page": 1,
+     "bbox": [
+      72.0,
+      94.25,
+      160.94,
+      107.99
+     ],
+     "quote": "a. author, b. author abstract: this fixture exists only to test reading order. its left column comes first, its right column second, and the header must not leak into the body.",
+     "section": "A Fixture Paper on Two Column Reading Order",
+     "coverage": 0.5
+    },
+    {
+     "page": 1,
+     "bbox": [
+      72.0,
+      120.0,
+      492.71,
+      148.51
+     ],
+     "quote": "a. author, b. author abstract: this fixture exists only to test reading order. its left column comes first, its right column second, and the header must not leak into the body. l1: first paragraph of the left column, spanning two lines beca",
+     "section": "A Fixture Paper on Two Column Reading Order",
+     "coverage": 0.5
+    },
+    {
+     "page": 1,
+     "bbox": [
+      72.0,
+      180.0,
+      282.65,
+      223.28
+     ],
+     "quote": "abstract: this fixture exists only to test reading order. its left column comes first, its right column second, and the header must not leak into the body. l1: first paragraph of the left column, spanning two lines because the column is nar",
+     "section": "A Fixture Paper on Two Column Reading Order",
+     "coverage": 0.5
+    },
+    {
+     "page": 1,
+     "bbox": [
+      72.0,
+      275.0,
+      250.99,
+      288.74
+     ],
+     "quote": "l1: first paragraph of the left column, spanning two lines because the column is narrow and the sentence is deliberately long. l2: second paragraph of the left column. l3: third paragraph of the left column.",
+     "section": "A Fixture Paper on Two Column Reading Order",
+     "coverage": 0.5
+    }
+   ],
+   "method": "lexical retrieval over three-paragraph windows of layout-ordered text (no generative answer)"
+  }
+ ]
+}

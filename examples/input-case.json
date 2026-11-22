@@ -1,0 +1,7 @@
+{
+ "case_id": "example-fixture",
+ "pdf": "sample.pdf",
+ "questions": [
+  "What does the left column of the first page contain?"
+ ]
+}
