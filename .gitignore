@@ -20,6 +20,9 @@ tmp/
 tests/out/
 tests/fixtures/
 
+# 会话轨迹（本地导出，提交时单独 --trace 传入）
+trace/
+
 # 凭据（永远不要提交）
 .git-credentials
 *.pem

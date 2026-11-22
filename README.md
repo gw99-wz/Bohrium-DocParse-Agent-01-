@@ -50,6 +50,13 @@ docs/arm-protocol.json    # 官方 ARM 协议原文
 examples/                 # 最小调用示例（示意输出，已标明）
 GITHUB_URL.txt            # 提交目录要求的作品链接
 tools/push_to_github.py   # 本机网络下的 API 推送工具（见下）
+tools/export_session_trace.mjs  # 把 DSH 会话日志导出为 playground 可读的 JSONL 轨迹
+```
+
+轨迹（不随仓库公开，提交时用 `--trace` 单独传入）：
+
+```bash
+node tools/export_session_trace.mjs --out trace/session-trace.jsonl
 ```
 
 ## 本地测试（真实结果）
