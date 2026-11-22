@@ -101,3 +101,12 @@ $env:GITHUB_TOKEN = "<token>"; python tools/push_to_github.py
 ```
 
 在直连可用的网络里，`git push origin main` 同样可用。
+
+## 提交记录
+
+| 项 | 值 |
+|---|---|
+| Attempt ID | **97481** |
+| 提交时间 | 2026-11-22T05:40:23Z |
+| 方式 | `playground submit`（CLI 0.1.57；bundle 3.76 MB；trace 249 events / 385 steps） |
+| 状态 | queued（平台 LLM judge 队列中，最终分数以平台为准） |
