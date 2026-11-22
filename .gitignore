@@ -1,0 +1,21 @@
+# 环境与本地安装
+.install/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+
+# 运行时产物
+.output/
+output/
+tmp/
+*.log
+*.tmp
+.DS_Store
+
+# 凭据（永远不要提交）
+.git-credentials
+*.pem
+*.key
